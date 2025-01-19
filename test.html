@@ -1,1 +1,120 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic Bloom</title>
+    <link rel="stylesheet" href="styles.css">
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sonic Bloom</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#bio">About</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#tour">Tour</a></li>
+            <li><a href="#merch">Merchandise</a></li>
+        </ul>
+    </nav>
+
+    <section id="bio" class="bio">
+        <h2>About Sonic Bloom</h2>
+        <p>Sonic Bloom is a genre-defying band blending elements of rock, electronic, and indie music. Formed in 2018,
+            the band draws inspiration from artists like Radiohead and Tame Impala while forging their own unique sound.
+        </p>
+        <img src="bio.jpg" alt="Sonic Bloom Band Image">
+    </section>
+
+    <section id="music" class="music">
+        <h2>Our Music</h2>
+        <p>Listen to our latest tracks:</p>
+        <div class="music-player">
+            <!-- <iframe src="https://open.spotify.com/embed/album/example" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+
+            <div class="carousel-container">
+                <div class="carousel-images">
+                    <img src="img1.jpg" alt="Image 1">
+                    <img src="img2.jpg" alt="Image 2">
+                    <img src="img3.jpg" alt="Image 3">
+                </div>
+                <div class="carousel-buttons">
+                    <button class="carousel-button" id="prev">&#10094;</button>
+                    <button class="carousel-button" id="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="music-detail">
+                <h2>Our Music</h2>
+                <p>Sonic Bloom creates a dynamic fusion of rock, electronic, and indie sounds. Inspired by Radiohead and
+                    Tame Impala, their music delivers immersive melodies, driving rhythms, and experimental tones.
+                    Discover their unique soundscapes on <a href="https://spotify.com" target="_blank">Spotify</a>, <a
+                        href="https://apple.com" target="_blank">Apple Music</a>, and <a href="https://bandcamp.com"
+                        target="_blank">Bandcamp</a>.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+        <div style="display: flex; flex-direction: column; width: 70%;">
+            <section id="tour" class="tour">
+                <h2>Tour Dates</h2>
+                <ul>
+                    <li>March 15, 2025 - Los Angeles, CA</li>
+                    <li>March 25, 2025 - New York, NY</li>
+                    <li>April 5, 2025 - London, UK</li>
+                </ul>
+            </section>
+    
+            <section id="merch" class="merch">
+                <h2>Merchandise</h2>
+                <p>Get your favorite Sonic Bloom gear: <a href="https://merch-store.com" target="_blank">Visit our
+                        store</a>.
+                </p>
+            </section>
+        </div>
+        <form class="contact-form">
+            <h2>Contact Us</h2>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 Sonic Bloom. All rights reserved.</p>
+    </footer>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel-images img');
+        const totalImages = images.length;
+
+        function setIamge(index) {
+            const carousel = document.querySelector('.carousel-images');
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+            setIamge(currentIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+            setIamge(currentIndex);
+        });
+    </script>
+</body>
+
+</html>
